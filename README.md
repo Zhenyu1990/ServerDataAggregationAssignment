@@ -8,6 +8,7 @@
 
 的格式，例如
 > local.random.diceroll 321 1461163460175
+
 ###2. 数据存储：
 接收到的数据按照每一秒metric value的平均值和最大值以及每分钟metric value的平均值和最大值分别存储，存储位置与metric path相同，如从local.random.diceroll接受到的数据，最后的存储形式就为：
 
@@ -56,6 +57,7 @@
 1. 使用socket编程TCP连接来模拟服务器（数据处理）与客户端（发送数据）
 2. 服务器端为com.playtech.summerinternship.collectinfo.Server，客户端为com.playtech.summerinternship.collectinfo.Client，默认发送地址为localhost端口8888，可以模拟发送local.random.diceroll 321 1461140237格式的数据。
 3. com.playtech.summerinternship.Data存储接收到的数据信息。
+
 ###二、数据查询：
 1. 本部分使用了jersey，主要是在com.playtech.summerinternship.rest.DataQueryService中使用，主要是用来从url中提取出查询的参数以及将bean转换为json字符串；
 2. com.playtech.summerinternship.GetDataPoints作为一个工具类，主要是从DataQueryService中接受查询参数，使用这些参数找到相应的数据。该类将会返回一个bean的ArrayList，该ArrayList将会在稍后被转换为json数组；
